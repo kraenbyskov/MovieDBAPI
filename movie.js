@@ -4,11 +4,10 @@ import CreateElement from './components/CreateElement.js';
 
 const id = GetUrlParams('id');
 
-console.log(id);
-
 const fetch = async () => {
 	const FetchSingleMovie = FetchMyData({ Endpoint: id });
 	const FetchSingleMovieCredits = FetchMyData({ Endpoint: `${id}/credits` });
+	const FetchSingleMovieKeywords = FetchMyData({ Endpoint: `${id}/keywords` });
 
 	await FetchSingleMovie.then((Movie) => {
 		console.log(Movie);
@@ -33,17 +32,41 @@ const fetch = async () => {
 	await FetchSingleMovieCredits.then((Credits) => {
 		Credits.cast.slice(0, 5).map((actores) => {
 			console.log(actores);
-
+			const actoresCard = CreateElement({
+				elmt: 'a',
+				src: `./actores.html?&id=${actores.id} `,
+				className: 'actoresCard'
+			});
 			const Actores = CreateElement({
 				elmt: 'h2',
 				content: actores.name
+			});
+			const Image = CreateElement({
+				elmt: 'img',
+				src: `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${actores.profile_path}`,
+				className: 'actoresImage'
 			});
 			const character = CreateElement({
 				elmt: 'p',
 				content: actores.character
 			});
-			root.appendChild(Actores);
-			root.appendChild(character);
+			actoresCard.appendChild(Actores);
+			actoresCard.appendChild(Image);
+			actoresCard.appendChild(character);
+			root.appendChild(actoresCard);
+		});
+	});
+
+	await FetchSingleMovieKeywords.then((keywords) => {
+		console.log(keywords);
+		keywords.keywords.map((keyword) => {
+			const Name = CreateElement({
+				elmt: 'a',
+				content: keyword.name,
+				src: `./keywords.html?&id=${keyword.id} `,
+				className: 'keywords'
+			});
+			root.appendChild(Name);
 		});
 	});
 };

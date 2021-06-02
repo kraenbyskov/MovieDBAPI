@@ -1,50 +1,68 @@
-
-
 body {
-    background:gray;
+	background: rgb(245, 154, 189);
 }
 
 * {
-    margin:0;
-    padding:0;
+	margin: 0;
+	padding: 0;
+}
+
+.keywords {
+	background-color: brown;
+	padding: 5px 10px;
+	margin: 10px;
+	color: white;
+}
+
+.actoresImage {
+	width:100%;
 }
 
 .button {
-    padding:10px 20px;
-    background:orange;
-    margin:10px;
+	padding: 10px 20px;
+	background: orange;
+	margin: 10px;
 }
 
 .disableButton {
-    
-    background:black;
-    color: white;
+	background: black;
+	color: white;
 }
 
 .buttons {
-    display: flex;
-    width:100%;
-    justify-content: space-around;
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
 }
 
-#root {
-    display:grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    margin: 50px;
+
+.forside {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 30px;
+	margin: 50px;
 }
+
+
+.Movie .actoresCard {
+	width:100px;
+	display: inline-block;
+	margin: 20px;
+	background:white;
+	padding:20px;
+}
+
 
 .Card {
-background:white;
-box-shadow: 3px 5px 10px black, -3px -5px 10px orange, 3px 5px 10px blue;
+	background: white;
+	box-shadow: 3px 5px 10px black, -3px -5px 10px orange, 3px 5px 10px blue;
 }
-
 
 .Card h2 {
-    height: 50px;
-    font-size:18px;
-    text-align: center;
+	height: 50px;
+	font-size: 18px;
+	text-align: center;
 }
 .Card img {
-    width:100%;
+	width: 100%;
 }
