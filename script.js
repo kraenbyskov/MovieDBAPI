@@ -57,4 +57,3 @@ Next.addEventListener('click', () => {
 	}
 });
 
-console.log(GetUrlParams('page'));
